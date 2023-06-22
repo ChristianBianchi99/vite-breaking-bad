@@ -1,9 +1,11 @@
 <script>
 import AppPokemonCard from './AppPokemonCard.vue';
+import AppLoader from './AppLoader.vue';
 import {store} from '../data/store.js';
 export default {
     components:{
         AppPokemonCard,
+        AppLoader
     },
     data(){
         return{
@@ -16,7 +18,10 @@ export default {
     <div>
         <div class="screenContainer">
             <div class="screenContent">
-                <AppPokemonCard class="pokemonCard" v-for="(pokemon, index) in store.pokemonList" :key="index" :pokemon="pokemon" />
+                <AppPokemonCard class="pokemonCard" v-for="(pokemon, index) in store.pokemonList" :key="index" :pokemon="pokemon" v-if="store.loading===false"/>
+                <div class="loaderDisplay" v-else>
+                    <AppLoader class="Loader" />
+                </div>
             </div>
         </div>
     </div>
@@ -32,9 +37,21 @@ export default {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            overflow-y: scroll;
+            height: 530px;
             .pokemonCard{
                 width: calc(100% / 5 - 15px);
             }
+        }
+    }
+    .loaderDisplay{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        .Loader{
+            align-self: center;
         }
     }
 </style>
