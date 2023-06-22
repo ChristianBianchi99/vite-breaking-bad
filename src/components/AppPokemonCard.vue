@@ -1,6 +1,8 @@
 <script>
 export default {
-    
+    props:{
+        pokemon: Object,
+    }
 }
 </script>
 <template lang="">
