@@ -16,7 +16,7 @@ export default {
     <div>
         <div class="screenContainer">
             <div class="screenContent">
-                <AppPokemonCard v-for="(pokemon, index) in store.pokemonList" :key="index" :pokemon="pokemon" />
+                <AppPokemonCard class="pokemonCard" v-for="(pokemon, index) in store.pokemonList" :key="index" :pokemon="pokemon" />
             </div>
         </div>
     </div>
@@ -27,9 +27,14 @@ export default {
         padding: 40px 20px;
         border-radius: 20px;
         .screenContent{
-            background-color: rgb(116, 120, 124);
-            padding: 20px 10px;
+            background-color: rgb(104, 108, 112);
+            padding:10px;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .pokemonCard{
+                width: calc(100% / 5 - 15px);
+            }
         }
     }
 </style>

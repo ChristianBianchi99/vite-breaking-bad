@@ -35,8 +35,8 @@ export default {
 </template>
 <style lang="scss" scoped>
     .background{
-        height: 100vh;
         background-color: rgb(183, 27, 27);
+        padding-bottom: 25px;
         .console{
             display: flex;
             .buttons{
