@@ -1,120 +1,20 @@
 <script>
+import {typesColor} from '../data/index.js'
 export default {
     props:{
         pokemon: Object,
     },
-    methods:{
-        pokemonType(type1){
-            switch(type1){
-                case 'Grass':
-                    return 'green';
-                    break;
-                case 'Fire':
-                    return 'red';
-                    break;
-                case 'Water':
-                    return 'blue';
-                    break;
-                case 'Bug':
-                    return '';
-                    break;
-                case 'Normal':
-                    return '';
-                    break;
-                case 'Flying':
-                    return '';
-                    break;
-                case 'Dark':
-                    return '';
-                    break;
-                case 'Poison':
-                    return '';
-                    break;
-                case 'Electric':
-                    return '';
-                    break;
-                case 'Psychic':
-                    return '';
-                    break;
-                case 'Ground':
-                    return '';
-                    break;
-                case 'Ice':
-                    return '';
-                    break;
-                case 'Steel':
-                    return '';
-                    break;
-                case 'Fairy':
-                    return '';
-                    break;
-                case 'Fighting':
-                    return '';
-                    break;
-                case 'Rock':
-                    return '';
-                    break;
-            }
-        },
-        pokemonTypeBg(type1){
-            switch(type1){
-                case 'Grass':
-                    return 'greenBg';
-                    break;
-                case 'Fire':
-                    return 'redBg';
-                    break;
-                case 'Water':
-                    return 'blueBg';
-                    break;
-                case 'Bug':
-                    return '';
-                    break;
-                case 'Normal':
-                    return '';
-                    break;
-                case 'Flying':
-                    return '';
-                    break;
-                case 'Dark':
-                    return '';
-                    break;
-                case 'Poison':
-                    return '';
-                    break;
-                case 'Electric':
-                    return '';
-                    break;
-                case 'Psychic':
-                    return '';
-                    break;
-                case 'Ground':
-                    return '';
-                    break;
-                case 'Ice':
-                    return '';
-                    break;
-                case 'Steel':
-                    return '';
-                    break;
-                case 'Fairy':
-                    return '';
-                    break;
-                case 'Fighting':
-                    return '';
-                    break;
-                case 'Rock':
-                    return '';
-                    break;
-            }
+    computed:{
+        bgColor(){
+            return typesColor[this.pokemon.type1]
         }
-    }
+    },
 }
 </script>
 <template lang="">
     <div>
-        <div class="pokeCard" :class="pokemonType(pokemon.type1)">
-            <div class="img" :class="pokemonTypeBg(pokemon.type1)">
+        <div class="pokeCard" :style="`background-color: ${bgColor}`">
+            <div class="img">
                 <img :src="pokemon.imageUrl" :alt="pokemon.name">
             </div>
             <div class="details">
@@ -145,6 +45,7 @@ export default {
             width: 120px;
             height: 120px;
             border-radius: 50%;
+            background-color: white;
             img{
                 border-radius: 50%;
                 height: 100%;
@@ -160,23 +61,5 @@ export default {
                 font-style: italic;
             }
         }
-    }
-    .red{
-        background-color: rgb(253, 223, 223);
-    }
-    .green{
-        background-color: rgb(222, 253, 224);
-    }
-    .blue{
-        background-color: rgb(222, 243, 253);
-    }
-    .redBg{
-        background-color: rgb(254, 237, 237);
-    }
-    .greenBg{
-        background-color: rgb(235, 255, 237);
-    }
-    .blueBg{
-        background-color: rgb(236, 247, 253);
     }
 </style>
